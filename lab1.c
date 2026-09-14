@@ -1,3 +1,4 @@
+// program to aanalyse a string
 #include <stdio.h>
 #include <ctype.h>
 int main()

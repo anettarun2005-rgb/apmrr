@@ -30,7 +30,3 @@ int main()
   printf("\n");
   return 0;
 }
-/*
-   enter a sentence:when i grow up i wanna be like wiz khaleefa
-   reversed word order:khaleefa wiz like be wanna i up grow i when
- */

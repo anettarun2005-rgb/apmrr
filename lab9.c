@@ -1,51 +1,37 @@
-#include<stdio.h>
- int main()
-  {
-     int a[10][10],b[10][10],c[10][10];
-     int r1,c1,r2,c2;
-     int i,j,k;
-     printf("enter rows and cols of first matrix:");
-     scanf("%d%d",&r1,&c1);
-     printf("enter first matrix:");
-    for(i=0;i<r1;i++)
-    {
-      for(j=0;j<c1;j++)
-      {
-        scanf("%d",&a[i][j]);
-      }
-    }
-    printf("enter rows and cols of second matrix:");
-    scanf("%d%d",&r2,&c2);
-    for(i=0;i<r2;i++)
-    {
-      for(j=0;j<c2;j++)
-      {
-       scanf("%d",&b[i][j]);
-      }
-    }
-    if(c1!=r2)
-    {
-      printf("multiplication not possible");
-      return 0;
-    }
-    for(i=0;i<r1;i++)
-    {
-      for(j=0;j<c2;j++)
-      {
-        c[i][j]=0;
-        for(k=0;k<c1;k++)
-        {
-          c[i][j]=c[i][j]+a[i][k]*b[k][j];
+#include <stdio.h>
+#define m 5
+
+void gtel(int t[m][m]) {
+    printf("Enter elements separated by space:\n");
+    for (int i = 0; i < m; i++) {
+        for (int j = 0; j < m; j++) {
+            scanf("%d", &t[i][j]);
         }
-      }
     }
-    printf("result matrix:\n");
-    for(i=0;i<r1;i++)
-    {
-      for(j=0;j<c2;j++)
-        printf("%d ",c[i][j]);
-      printf("\n");
+}
+
+int check(int t[m][m]) {
+    for (int i = 0; i < m; i++) {
+        for (int j = 0; j < m; j++) {
+            if (t[i][j] != t[j][i]) {
+                return 0; // Not symmetric
+            }
+        }
     }
+    return 1; // Symmetric
+}
+
+int main() {
+    int a[m][m];
+    gtel(a);
+    
+    if (check(a)) {
+        printf("\nThe matrix is symmetric\n");
+    } else {
+        printf("\nThe matrix is not symmetric\n");
+    }
+    
     return 0;
-  }
+}
+
 
